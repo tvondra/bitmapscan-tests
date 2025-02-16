@@ -1,0 +1,25 @@
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+                                                  QUERY PLAN                                                  
+--------------------------------------------------------------------------------------------------------------
+ Limit  (cost=590535.18..590535.55 rows=8 width=49)
+   ->  Gather  (cost=136368.52..590535.55 rows=10000008 width=49)
+         Workers Planned: 4
+         ->  Parallel Bitmap Heap Scan on bitmap_scan_test  (cost=136368.52..590535.55 rows=2500002 width=49)
+               Recheck Cond: ((a >= '-2'::integer) AND (a <= 110))
+               ->  Bitmap Index Scan on bitmap_scan_test_a_idx  (cost=0.00..133868.52 rows=10000008 width=0)
+                     Index Cond: ((a >= '-2'::integer) AND (a <= 110))
+(7 rows)
+
+Timing is on.
+ a | b | c 
+---+---+---
+(0 rows)
+
+Time: 2849.011 ms (00:02.849)
