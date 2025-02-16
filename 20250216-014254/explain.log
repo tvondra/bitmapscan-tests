@@ -1,0 +1,15 @@
+SET
+SET
+SET
+SET
+SET
+SET
+                                           QUERY PLAN                                            
+-------------------------------------------------------------------------------------------------
+ Limit  (cost=454166.67..454167.03 rows=8 width=49)
+   ->  Gather  (cost=0.00..454167.03 rows=10000008 width=49)
+         Workers Planned: 4
+         ->  Parallel Seq Scan on bitmap_scan_test  (cost=0.00..454167.03 rows=2500002 width=49)
+               Filter: ((a >= '-10'::integer) AND (a <= 102))
+(5 rows)
+
